@@ -6,5 +6,5 @@ Este repositório é baseado num projeto da [Digital Innovation One](https://dig
 
 Controles: 
   * setas para direção da serpente
-  * + para aumentar velocidade
-  * - para diminuir velocidade
+  * \+ para aumentar velocidade
+  * \- para diminuir velocidade
