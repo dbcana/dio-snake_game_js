@@ -13,6 +13,6 @@ Regras:
   * Coma o maior número de frutas movimentando a serpente pelo mapa
   * Cada fruta equivale a 1 ponto
   * Ao chegar nas extremidades do mapa, a cabeça da serpente aparece na extremidade oposta
-  * A cada 10 frutas apanhadas, a velocidade aumenta um nível
+  * A cada 10 frutas apanhadas, a velocidade aumenta 1 nível
   * Você pode aumentar ou diminuir a velocidade, mas a velocidade se ajusta conforme o tamanho da serpente: quanto maior a cobra, maior será a velocidade (limite 7)
   * O jogo termina no momento em que a cabeça da serpente tocar qualquer parte de seu corpo (game over).
