@@ -1,5 +1,6 @@
 let canvas = document.getElementById('snake');
 let context = canvas.getContext('2d');
+let points = document.getElementById('points');
 
 let dimension = 20;
 let box = 20;
@@ -22,6 +23,7 @@ function drawSnake (){
         context.fillStyle = 'green';
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
+    points.innerHTML = 'Points: ' + snake.length;
 }
 
 function drawFood (){
