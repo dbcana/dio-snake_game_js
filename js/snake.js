@@ -1,6 +1,8 @@
 let canvas = document.getElementById('snake');
 let context = canvas.getContext('2d');
-let points = document.getElementById('points');
+let score_points = document.getElementById('score_points');
+let score_speed = document.getElementById('score_speed');
+let score_level = document.getElementById('score_level');
 
 let dimension = 20;
 let box = 20;
@@ -23,7 +25,6 @@ function drawSnake (){
         context.fillStyle = 'green';
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
-    points.innerHTML = 'Points: ' + snake.length;
 }
 
 function drawFood (){
@@ -78,6 +79,18 @@ function checkColision(){
     }
 }
 
+function checkDificulty(){
+    let level = Math.floor(snake.length/10);
+    let speed_aux = 400 - level * 50;
+    if(speed_aux <= 50){
+        speed = 50;
+    } else if(speed > speed_aux){
+        speed = speed_aux;
+    }
+    clearInterval(game);
+    game = setInterval(refreshGame, speed);
+}
+
 function checkOverload(){
     if(direction == 'right' && snake[0].x >= dimension * box){
         snake[0].x = 0;
@@ -115,13 +128,22 @@ function checkMove(){
     snake.unshift(newHead);
 }
 
+function refreshscore(){
+    score_points.innerHTML = 'Points: ' + snake.length;
+    score_level.innerHTML = 'Level: ' + Math.floor(snake.length / 10);
+    speed_aux = 400 - speed;
+    score_speed.innerHTML = 'Speed: ' + Math.floor(speed_aux / 50);
+}
+
 function refreshGame(){
     checkMove();
     checkOverload();
     checkColision();
+    checkDificulty();
     drawBackground();
     drawSnake();
     drawFood();
+    refreshscore();
 }
 
 function resetGame(){
